@@ -1,11 +1,11 @@
 {
-  "name": "sql-view-auth",
+  "name": "task",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon -e js,hbs src/app.js"
+    "dev": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
@@ -13,8 +13,6 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
-    "csurf": "^1.11.0",
-    "dotenv": "^9.0.1",
     "express": "^4.17.1",
     "express-mysql-session": "^2.1.6",
     "express-session": "^1.17.1",
