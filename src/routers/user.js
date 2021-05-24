@@ -11,10 +11,8 @@ const setSession = (req, user) => {
 };
 
 router.get('/logout', redirectToLogin, (req, res) => {
-  req.session.destroy(function (err) {
-    console.log(err);
-  });
-  res.redirect('/');
+  req.session.destroy();
+  res.redirect('/login');
 });
 
 router.get('/login', redirectToHome, (req, res) => {
