@@ -1,8 +1,4 @@
-// const submitBtn = document.querySelector('form[type="submit"]');
-// const form = document.querySelector('form');
-
 const main = document.querySelector('main');
-const nav = document.querySelector('nav');
 let isDescFull = {};
 let allDesc = {};
 
@@ -61,36 +57,3 @@ main.addEventListener('click', async e => {
 
   window.location.href = 'http://localhost:3000';
 });
-
-// TRASH
-// if (!remove) return;
-// const id = e.target.closest('.task-container').querySelector('.id').innerText.replace('#', '');
-
-// await fetch(`http://localhost:3000/remove/${id}`, {
-//   method: 'DELETE',
-// });
-
-// const data = {
-//   title,
-//   id,
-// };
-// const formData = new FormData();
-// formData.append('title', title);
-// formData.append('id', id);
-
-// await fetch('http://localhost:3000/remove/:', {
-//   method: 'DELETE',
-//   body: formData,
-// });
-
-// console.log(submitBtn, form);
-
-// console.log(form.action);
-
-// form.addEventListener('submit', async e => {
-//   e.preventDefault();
-
-//   const formData = new FormData(form);
-
-//   console.log(Object.values(form));
-// });
