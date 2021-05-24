@@ -78,4 +78,4 @@ sequelize
   .then(result => console.log('Connected to DATABASE'))
   .catch(err => console.log(err));
 
-app.listen(env.process.PORT);
+app.listen(process.env.PORT);
