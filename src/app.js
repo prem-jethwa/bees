@@ -3,7 +3,6 @@ const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
 const app = express();
-const curfProtection = require('csurf');
 
 // SESSION
 const session = require('express-session');
@@ -30,9 +29,6 @@ app.use(
   })
 );
 
-// cross side scripting protection
-// app.use(curfProtection);
-
 const publicDirPath = path.join(__dirname, '../public');
 const viewDirPath = path.join(__dirname, '../template');
 const partialsDirPath = path.join(__dirname, '../partials');
@@ -50,7 +46,6 @@ const store = new MySqlStore({
   user: DB_USER,
   password: DB_PASS,
   database: DB_NAME,
-  // createDatabaseTable: true,
 });
 
 const sess = session({
@@ -83,4 +78,4 @@ sequelize
   .then(result => console.log('Connected to DATABASE'))
   .catch(err => console.log(err));
 
-app.listen(3000, console.log(`Running on port 3000!`));
+app.listen(env.process.PORT);
