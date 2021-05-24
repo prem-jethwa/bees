@@ -1,5 +1,3 @@
-require('../config/keys'); //env variables
-
 require('mysql2');
 const express = require('express');
 const hbs = require('hbs');
