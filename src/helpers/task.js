@@ -82,4 +82,4 @@ const resetRenderId = async userId => {
   }
 };
 
-module.exports = {_generatInfo, updateTotalTasks, updateCompleteTasks, getDetails, resetRenderId};
+module.exports = { updateTotalTasks, updateCompleteTasks, getDetails, resetRenderId};
