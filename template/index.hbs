@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Task app</title>
+    <link rel="stylesheet" href="./css/style.css">
+     <script defer src="./js/script.js"></script>
+</head>
+<body>
+   {{>header}}
+    <main class="container main main-home">
+        <h2>{{title}}</h2>
+        <div class="tasks">
+            {{#each tasks}}
+            <div class="task-container flex">
+                <div class="task">
+                    <div class="date-id">
+                        <div class="date">{{this.date}}</div>
+                        <div class="id">#{{this.renderId}}</div>
+                    </div>
+                    <div class="title"><span>Title </span> <p>{{this.title}}</p></div>
+                    {{#if this.desc}}
+                       <div class="desc"><span>Description </span> 
+                        <p> 
+                            {{#if this.descLength}} 
+                            {{this.desc}} <p class="more">more</p> 
+                            {{else}}
+                            {{this.desc}}
+                            {{/if}}
+                        </p>
+                       </div>
+                    {{/if}}
+                </div>
+                 <div class="task-btn flex">
+                     <div data-url="/remove/{{this.id}}"  class="btn remove">Completed</div>
+                     <a href="/edit/{{this.id}}" class="btn edit">Edit</a>
+                 </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="add-task">
+             <a href="/create" class="create"><img src="./img/add-task.png" alt="addTask"></a>
+            
+        </div>
+    </main>
+    {{> footer}}
+</body>
+</html>

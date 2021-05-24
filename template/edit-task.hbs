@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Task app</title>
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <script defer src="../../js/script.js"></script>
+</head>
+<body>
+   {{>header}}
+    <main class="container">
+        <h2>{{title}}</h2>
+        <div class="form-container">
+            <form  method="POST" action="/edit/{{task.id}}" class="flex form">
+                {{#if errorMsg}}
+                <div class="error-msg">
+                    <p> {{errorMsg}}</p>
+                </div>
+                {{/if}}
+                <div class="form-control">
+                    <label for="title">Title :</label>
+                    <input name="title" value="{{task.title}}" type="text">
+                </div>
+                <div class="form-control">
+                    <label for="task">Task :</label>
+                    <textarea name="desc" class="textarea">{{task.desc}}</textarea>
+                </div>
+                <div class="form-control">
+                     <label for="complete date">Complete IN :</label>
+                    <input name="completeDate" type="date">
+                </div>
+                <button type="submit" class="submit-btn edit-btn
+        </div>
+    </main>
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+<header class='header'>
+  <nav class='nav container flex'>
+    <div class='home-create-container flex'>
+      <a href='/' class='home btn'>
+        HOME
+      </a>
+      {{!-- style="background:{{#if isAuth}} 'gray' {{else}} '' {{/if}};"     --}}
+      {{! <a href="/create" class="create btn">CREATE</a> }}
+    </div>
+    <div class='task-header'>
+      TASK APP
+    </div>
+    {{#if isAuth}}
+      <div class='details-container'>
+        <div id='details-btn' class='btn'>
+          Details
+        </div>
+        <div class='details flex'>
+          <div class='arrow-up'></div>
+          <p class='details-child name'>
+            {{details.name}}
+          </p>
+          <div class='active-task details-child'>
+            <p>
+              Active Task
+            </p>
+            <p>
+              {{details.activeTask}}
+            </p>
+          </div>
+          <div class='details-info details-child'>
+            <div class='total-task'>
+              <p>
+                Total Tasks
+              </p>
+              <p>
+                {{details.totalTask}}
+              </p>
+            </div>
+            <div class='completed-task'>
+              <p>
+                Completed Tasks
+              </p>
+              <p>
+                {{details.complitedTask}}
+              </p>
+            </div>
+          </div>
+          <a href='/resetId' class='reset-btn btn'>
+            Reset Id
+          </a>
+          <a href='/logout' class='logout btn'>
+            Logout
+          </a>
+        </div>
+      </div>
+    {{else}}
+      <a href='/login' class='login btn'>
+        Login/Signup
+      </a>
+    {{/if}}
+  </nav>
+</header>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Task app</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+   {{>header}}
+    <main class="container">
+        <h2>{{title}}</h2>
+    </main>
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Task app</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="./js/script.js"></script>
+</head>
+<body>
+   {{!-- {{>header}} --}}
+    <main class="container login">
+        {{!-- <h2>{{title}}</h2> --}}
+        <div class="form-container">
+                <form action="/signup" method="post" class=" form flex">
+                    {{#if errorMsg}}
+                    <div class="error-msg">
+                        <p>{{errorMsg}}</p>
+                    </div>
+                    {{/if}}
+                    <div class="form-control">
+                        <label for="name">Name :</label>
+                        <input name="userName" type="text">
+                    </div>
+                    <div class="form-control">
+                        <label for="email">Email :</label>
+                        <input name="email" type="text">
+                    </div>
+                    <div class="form-control">
+                        <label for="password">Password :</label>
+                        <input name="password" type="password">
+                    </div>
+                    <div class="form-control">
+                        <label for="conformPassword">Conform Password :</label>
+                        <input name="conformPassword" type="password">
+                    </div>
+                    <button type="submit" class="submit-btn" > Sign Up </button>
+                </form>
+                <a href="/login" class="btn goto">Goto Login!</a>
+        </div>
+    </main>
+</body>
+</html>
+</html>

@@ -1,0 +1,481 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300&family=Marcellus+SC&display=swap');
+* {
+  margin: 0;
+}
+body {
+  background-color: rgba(177, 177, 177, 0.377);
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+:root {
+  --pri-color: #f4a261;
+  --pri-bg: #fcc04991;
+  --sec-color: rgba(255, 230, 0, 0.726);
+  --sec-bg: #fff8d1; /*rgb(255, 230, 198);*/
+  --pri-border: rgb(255, 145, 0);
+  --sec-border: rgb(90, 90, 90);
+  --font-color: rgb(90, 90, 90);
+  --task-pri-bg: #e76f51;
+  --task-bg: #ffdbb3;
+  --task-color: rgb(255, 184, 184);
+  --pri-form: #fdffb6;
+
+  /* font */
+  --pri-font: 'Epilogue', sans-serif;
+  --sec-font: 'Marcellus SC', serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+.btn {
+  padding: 0.5em 0.7em;
+  background-color: var(--pri-color);
+  /* border: 2px dotted; */
+  font-size: 1.5em;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 1px 1px 5px rgba(110, 110, 110, 0.541);
+}
+.btn:hover {
+  background-color: var(--pri-bg);
+}
+
+.header {
+  background-color: var(--pri-bg);
+  margin: 0;
+}
+
+.nav {
+  padding: 1.5rem 1em;
+}
+
+header .home {
+  margin: 0 1em 0 0;
+  /* height: 20px; */
+}
+
+.main {
+  max-width: 1200px;
+  margin: auto;
+  min-height: 80vh;
+}
+
+h2 {
+  text-align: center;
+  margin: 1em auto;
+  font-family: var(--pri-font);
+}
+
+.task-header {
+  font-size: 1.75rem;
+  text-shadow: 1px 1px 5px rgba(110, 110, 110, 0.541);
+  margin: auto;
+  font-family: var(--sec-font);
+}
+
+/* Form */
+
+.form-container {
+  max-width: 300px;
+  background-color: var(--pri-form);
+  font-family: var(--pri-font);
+
+  box-shadow: 1px 1px 10px rgba(110, 110, 110, 0.541);
+  border-radius: 15px;
+  margin: 0 auto;
+  padding: 0 0.5em;
+}
+
+.form {
+  flex-direction: column;
+  width: 100%;
+  font-size: 20px;
+  margin: 0.5em 0.5em 0 0.5em;
+}
+.form-control:first-child {
+  margin-top: 1em;
+}
+.form-control {
+  margin: 0.5em 0;
+}
+.form-control input {
+  width: 85%;
+  margin-top: 0.2em;
+  padding: 0.5em;
+  font-size: 18px;
+
+  border-radius: 10px;
+  outline: none;
+}
+
+.form button {
+  width: 90%;
+  padding: 0.5rem;
+  margin: 0.5em auto 0 0.2em;
+  background-color: var(--pri-color);
+  cursor: pointer;
+  border-radius: 10px;
+
+  text-align: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+.form button:hover {
+  background-color: var(--sec-bg);
+}
+
+.goto {
+  position: relative;
+  bottom: -50px;
+  margin: 0;
+}
+
+/* create task */
+.textarea {
+  max-width: 260px;
+  max-height: 150px;
+  min-width: 260px;
+  min-height: 150px;
+  font-size: 20px;
+  padding: 0.5em;
+
+  line-height: 2rem;
+}
+
+button.create-btn,
+button.edit-btn {
+  margin-bottom: 1em;
+}
+
+/* Task styling */
+
+.tasks {
+  max-width: 1200px;
+  /* margin: 0 auto; */
+  margin: 0.5em;
+  justify-content: center;
+
+  display: grid;
+  grid-gap: 0.5em;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 0.4fr));
+  /* grid-auto-rows: 100px; check out NEW Notes */
+  /* grid-auto-flow: dense;  */
+  font-family: var(--sec-font);
+}
+
+.task-container {
+  background-color: var(--task-pri-bg);
+  padding: 0.5em;
+  border-radius: 10px;
+  font-size: 20px;
+  position: relative;
+
+  flex-direction: column;
+  color: white;
+}
+
+.task {
+  margin: 0.4em;
+}
+
+/* .task .title {
+  margin-top: 0.5em;
+} */
+
+.task p {
+  width: 100%;
+  margin: 0.2em;
+}
+.title,
+.desc {
+  background-color: var(--task-bg);
+  padding: 0.2em 0.5em;
+  color: var(--font-color);
+  font-family: var(--pri-font);
+  font-weight: 600;
+  line-height: 1.7rem;
+}
+.title {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.desc {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.task-container .date-id {
+  width: 100%;
+  height: 30px;
+}
+
+.task-container .id {
+  float: right;
+}
+
+.task-container .date {
+  float: left;
+}
+
+.task-container span {
+  color: rgb(0, 123, 172);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.task-container .btn {
+  padding: 0.3rem;
+  font-size: 14px;
+  border: 1px solid;
+  margin: 1rem 0.2rem 0em 0.2em;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.task-btn {
+  width: 100%;
+}
+
+.task-btn .remove {
+  background-color: rgba(136, 136, 136, 0.295);
+}
+
+.task-btn .edit {
+  background-color: var(--pri-bg);
+  color: rgb(124, 53, 53);
+}
+
+/* QqT94umjwpz39vW */
+/* zx7RwKVFJApFChR */
+
+/* Details button */
+.details {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  display: none;
+  position: absolute;
+  right: 25px;
+  top: 5em;
+  width: 250px;
+  background-color: var(--sec-bg);
+  z-index: 3;
+  /* border: var(--pri-border) 5px solid; */
+  padding: 1em;
+
+  color: var(--sec-font);
+  font-size: 1.1rem;
+  border-radius: 10px;
+  font-weight: 600;
+
+  box-shadow: 1px 1px 10px rgba(110, 110, 110, 0.541);
+  font-family: var(--sec-font);
+}
+.arrow-up {
+  position: absolute;
+  top: -23px;
+  right: 8px;
+  /* width: 0;
+  height: 0; */
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+
+  border-bottom: 25px solid var(--sec-bg);
+}
+
+.details-container:focus-within {
+  display: flex;
+}
+.details-container:focus-visible {
+  display: flex;
+}
+.details-container:hover .details {
+  display: flex;
+}
+
+/* inner styling */
+.details-info {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.details-info p:not(:first-child),
+.active-task p:not(:first-child) {
+  white-space: nowrap;
+  text-align: center;
+  margin: 0.5em auto;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(104, 104, 104);
+
+  max-width: 30px;
+  padding: 0.2em;
+  background: var(--pri-bg);
+  border-radius: 15px;
+  box-shadow: 1px 1px 10px rgba(110, 110, 110, 0.541);
+}
+
+.details-child:not(:last-child) {
+  margin-bottom: 1em;
+}
+/* .login {
+  margin-top: 0.5em;
+} */
+
+.name {
+  width: 100%;
+  font-size: 24px;
+  margin: 0.5em auto;
+  border-bottom: 1px dotted;
+  text-align: center;
+  font-weight: 700;
+
+  text-shadow: 1px 1px 3px rgba(110, 110, 110, 0.541);
+}
+
+/* Reset Id btn */
+.reset-btn {
+  margin: 0.5em;
+}
+.reset-btn,
+.logout {
+  padding: 0.5em;
+  width: 90%;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.logout:hover {
+  background-color: rgb(255, 102, 0);
+  color: var(--sec-font);
+}
+
+/* add-task btn */
+
+/* .add-task {
+  max-width: 1200px;
+  margin: auto;
+  min-height: 50vh;
+  position: absolute;
+  right: 20px;
+} */
+
+.add-task img {
+  /* max-width: 900px; */
+  margin: 0 auto;
+  position: fixed;
+  bottom: 50px;
+  right: 5%;
+  width: 70px;
+  padding: 0.5em;
+  border: 2px solid;
+  border-radius: 50%;
+  box-shadow: 1px 1px 10px rgba(110, 110, 110, 0.541);
+  background-color: var(--pri-bg);
+}
+
+.add-task img:hover {
+  background-color: var(--sec-color);
+}
+
+/* @media (max-width:900px) {
+  
+} */
+
+/* Error message */
+
+.error-msg {
+  padding: 0;
+  background-color: rgba(255, 174, 149, 0.836);
+  border: 5px dotted rgb(255, 0, 0);
+  margin: 1em 1em 0.5em 0;
+  color: rgb(190, 0, 0);
+}
+
+.error-msg p {
+  margin: 0;
+  padding: 0.5rem;
+}
+
+/* more btn */
+
+p.more {
+  color: blue;
+  cursor: pointer;
+  margin: 0;
+  width: 50px;
+}
+
+/* footer styling */
+
+.footer {
+  margin-top: 1em;
+  height: 300px;
+  width: 100%;
+  background-color: rgb(255, 215, 163);
+
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+/* .inner-footer {
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+} */
+
+.footer-btn {
+  margin: 0 0.5em;
+}
+
+/* Media querys */
+
+@media (max-width: 900px) {
+  .tasks {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0.6fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .btn {
+    font-size: 1.2em;
+  }
+  .details {
+    top: 4.8em;
+    right: 17px;
+  }
+  .add-task img {
+    width: 50px;
+  }
+
+  .tasks {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0.7fr));
+  }
+}
+@media (max-width: 500px) {
+  .tasks {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (min-width: 1400px) {
+  .add-task img {
+    right: 10%;
+  }
+}
+@media (min-width: 1500px) {
+  .add-task img {
+    right: 15%;
+  }
+}
