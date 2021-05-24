@@ -71,7 +71,6 @@ router.post('/create', redirectToLogin, async (req, res) => {
     await updateTotalTasks(req.session.userId);
     res.redirect('/');
   } catch (err) {
-    console.log(err);
     const details = await getDetails(req.session.userId);
     return res.status(400).render('create-task', {
       title: 'Create Tasks',
@@ -96,7 +95,6 @@ router.delete('/remove/:id', redirectToLogin, validTask, async (req, res) => {
     res.redirect('/');
   } catch (error) {
     res.status(400);
-    console.log(error);
   }
 });
 
