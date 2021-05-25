@@ -31,7 +31,7 @@ router.get('/', redirectToLogin, async (req, res) => {
     //   newObj.descLength = false;
     // }
 
-    newObj.date = task.dataValues.date.replaceAll('-', ' / ').split('/').reverse().join(' / ');
+    // newObj.date = task.dataValues.date.replaceAll('-', ' / ').split('/').reverse().join(' / ');
     tasksForSend.push(newObj);
   }
 
