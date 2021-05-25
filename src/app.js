@@ -73,8 +73,8 @@ Task.belongsTo(User, {
 User.hasMany(Task);
 
 sequelize
-  // .sync({force: true})
-  .sync()
+  .sync({force: true})
+  // .sync()
   .then(result => console.log('Connected to DATABASE'))
   .catch(err => console.log(err));
 
