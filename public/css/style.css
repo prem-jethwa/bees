@@ -444,6 +444,7 @@ p.more {
 
 .footer-btn {
   margin: 0 0.5em;
+  opacity: 0.5;
 }
 
 /* Media querys */
@@ -472,7 +473,6 @@ p.more {
 
   .copyright-footer p {
     font-size: 1.2rem;
-    font-family: var(--sec-font);
   }
   .footer-btn {
     margin: 0 0.3em;
