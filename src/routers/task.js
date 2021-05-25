@@ -25,11 +25,11 @@ router.get('/', redirectToLogin, async (req, res) => {
       let desc = task.dataValues.desc.trim();
       if (!desc) newObj.desc = false;
 
-      if (desc && desc.replaceAll(' ', '').length > 50) {
-        newObj.descLength = true;
-      } else {
-        newObj.descLength = false;
-      }
+      // if (desc && desc.replaceAll(' ', '').length > 50) {
+      //   newObj.descLength = true;
+      // } else {
+      //   newObj.descLength = false;
+      // }
 
       newObj.date = task.dataValues.date.replaceAll('-', ' / ').split('/').reverse().join(' / ');
       tasksForSend.push(newObj);
