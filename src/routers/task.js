@@ -3,7 +3,6 @@ const router = new express.Router();
 
 const User = require('../model/user');
 const Task = require('../model/task');
-const {SESS_KEY} = process.env;
 
 const {redirectToLogin} = require('../middleware/auth');
 const {validTask} = require('../middleware/task');

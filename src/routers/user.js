@@ -2,6 +2,7 @@ const express = require('express');
 const router = new express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../model/user');
+
 const {redirectToHome, redirectToLogin} = require('../middleware/auth');
 
 const setSession = (req, user) => {
@@ -63,6 +64,7 @@ router.post('/signup', redirectToHome, async (req, res) => {
     req.user = user;
     res.redirect('/');
   } catch (err) {
+    console.log(err);
     return res.status(400).render('signup', {
       title: 'Sign Up',
       isAuth: req.session.isUserLoggedIn,
