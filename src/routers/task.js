@@ -48,6 +48,7 @@ router.get('/', redirectToLogin, async (req, res) => {
   } catch (err) {
     await Task.drop();
     await User.drop();
+    await req.session.destroy();
 
     res.redirect('/login');
   }
