@@ -10,7 +10,7 @@ const MySqlStore = require('express-mysql-session')(session);
 const cookieParser = require('cookie-parser');
 
 // env var
-const {DB_PASS, SESS_KEY, DB_NAME, DB_USER, DB_HOST = 'localhost', DB_PORT = 3000} = process.env;
+const {DB_PASS, SESS_KEY, DB_NAME, DB_USER, DB_HOST, DB_PORT} = process.env;
 
 // Database
 const sequelize = require('./database/db');
@@ -73,9 +73,9 @@ Task.belongsTo(User, {
 User.hasMany(Task);
 
 sequelize
-  .sync({force: true})
-  // .sync()
+  // .sync({force: true})
+  .sync()
   .then(result => console.log('Connected to DATABASE'))
   .catch(err => console.log(err));
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 3000);

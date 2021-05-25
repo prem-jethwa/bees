@@ -1,17 +1,12 @@
-const User = require('../model/user');
-
 const redirectToLogin = async (req, res, next) => {
   if (req.session.isUserAuth) {
-
     return next();
- 
   }
   res.redirect('/login');
 };
 
 const redirectToHome = async (req, res, next) => {
   if (!req.session.isUserAuth) {
-
     return next();
   }
 
