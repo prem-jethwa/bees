@@ -24,7 +24,8 @@ router.get('/', redirectToLogin, async (req, res) => {
       let newObj = task.dataValues;
       let desc = task.dataValues.desc.trim();
       if (!desc) newObj.desc = false;
-      if (desc && newObj.desc.split(' ').length > 5) {
+
+      if (desc && desc.replaceAll(' ', '').length > 50) {
         newObj.descLength = true;
       } else {
         newObj.descLength = false;
