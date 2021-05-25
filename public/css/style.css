@@ -435,6 +435,11 @@ p.more {
   flex-direction: column;
 } */
 
+.copyright-footer p {
+  font-size: 1.5rem;
+  font-family: var(--sec-font);
+}
+
 .footer-btn {
   margin: 0 0.5em;
 }
