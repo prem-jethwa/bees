@@ -23,17 +23,17 @@ router.get('/', redirectToLogin, async (req, res) => {
   for (let task of tasks) {
     let newObj = task.dataValues;
     let desc = task.dataValues.desc.trim();
-    let date = task.dataValues.date;
+    let date = task.dataValues.date + '';
     if (!desc) newObj.desc = false;
 
-    if (desc && desc.replaceAll(' ', '').length > 50) {
+    if (desc && desc.replace(/ /, '').length > 50) {
       newObj.descLength = true;
     } else {
       newObj.descLength = false;
     }
 
     if (date) {
-      newObj.date = date + ''.replaceAll('-', ' / ').split('/').reverse().join(' / ');
+      newObj.date = date.replace(/-/g, ' / ').split('/').reverse().join(' / ');
     }
 
     tasksForSend.push(newObj);
