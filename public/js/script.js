@@ -55,5 +55,5 @@ main.addEventListener('click', async e => {
     method: 'DELETE',
   });
 
-  window.location.href = 'http://localhost:3000';
+  window.location.href = 'https://taskbypj.herokuapp.com/';
 });
