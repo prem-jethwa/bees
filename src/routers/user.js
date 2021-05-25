@@ -3,7 +3,6 @@ const router = new express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../model/user');
 const {redirectToHome, redirectToLogin} = require('../middleware/auth');
-const {SESS_KEY} = process.env;
 
 const setSession = (req, user) => {
   req.session.userId = user.id;

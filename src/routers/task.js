@@ -3,6 +3,7 @@ const router = new express.Router();
 
 const User = require('../model/user');
 const Task = require('../model/task');
+const {SESS_KEY} = process.env;
 
 const {redirectToLogin} = require('../middleware/auth');
 const {validTask} = require('../middleware/task');
@@ -14,12 +15,12 @@ const {
 } = require('../helpers/task');
 
 router.get('/', redirectToLogin, async (req, res) => {
-  const tasks = await Task.findAll({where: {userId: req.session.userId}});
-  const details = await getDetails(req.session.userId);
-
-  const tasksForSend = [];
-
   try {
+    const tasks = await Task.findAll({where: {userId: req.session.userId}});
+    const details = await getDetails(req.session.userId);
+
+    const tasksForSend = [];
+
     for (let task of tasks) {
       let newObj = task.dataValues;
       let desc = task.dataValues.desc.trim();
