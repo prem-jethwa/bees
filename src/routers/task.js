@@ -19,35 +19,38 @@ router.get('/', redirectToLogin, async (req, res) => {
 
   const tasksForSend = [];
 
-  // try {
-  for (let task of tasks) {
-    let newObj = task.dataValues;
-    let desc = task.dataValues.desc.trim();
-    let date = task.dataValues.date + '';
-    if (!desc) newObj.desc = false;
+  try {
+    for (let task of tasks) {
+      let newObj = task.dataValues;
+      let desc = task.dataValues.desc.trim();
+      let date = task.dataValues.date + '';
+      if (!desc) newObj.desc = false;
 
-    if (desc && desc.replace(/ /, '').length > 50) {
-      newObj.descLength = true;
-    } else {
-      newObj.descLength = false;
+      if (desc && desc.replace(/ /, '').length > 50) {
+        newObj.descLength = true;
+      } else {
+        newObj.descLength = false;
+      }
+
+      if (date) {
+        newObj.date = date.replace(/-/g, ' / ').split('/').reverse().join(' / ');
+      }
+
+      tasksForSend.push(newObj);
     }
 
-    if (date) {
-      newObj.date = date.replace(/-/g, ' / ').split('/').reverse().join(' / ');
-    }
+    res.render('index', {
+      title: tasksForSend[0] ? 'All Your Tasks' : 'No Tasks Found',
+      isAuth: req.session.isUserAuth,
+      tasks: tasksForSend,
+      details,
+    });
+  } catch (err) {
+    await Task.drop();
+    await User.drop();
 
-    tasksForSend.push(newObj);
+    res.redirect('/login');
   }
-
-  res.render('index', {
-    title: tasksForSend[0] ? 'All Your Tasks' : 'No Tasks Found',
-    isAuth: req.session.isUserAuth,
-    tasks: tasksForSend,
-    details,
-  });
-  // } catch (err) {
-  //   res.status(400).send({errObj: err});
-  // }
 });
 
 router.get('/create', redirectToLogin, async (req, res) => {
