@@ -23,6 +23,7 @@ router.get('/', redirectToLogin, async (req, res) => {
   for (let task of tasks) {
     let newObj = task.dataValues;
     let desc = task.dataValues.desc.trim();
+    let date = task.dataValues.date;
     if (!desc) newObj.desc = false;
 
     if (desc && desc.replaceAll(' ', '').length > 50) {
@@ -31,9 +32,10 @@ router.get('/', redirectToLogin, async (req, res) => {
       newObj.descLength = false;
     }
 
-    if (newObj.date)
-      newObj.date =
-        task.dataValues.date + ''.replaceAll('-', ' / ').split('/').reverse().join(' / ');
+    if (date) {
+      newObj.date = date + ''.replaceAll('-', ' / ').split('/').reverse().join(' / ');
+    }
+
     tasksForSend.push(newObj);
   }
 
