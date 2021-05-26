@@ -12,6 +12,7 @@ const {
   resetRenderId,
   updateCompleteTasks,
 } = require('../helpers/task');
+const dropAllDB = require('../helpers/dropdb');
 
 router.get('/', redirectToLogin, async (req, res) => {
   try {
@@ -46,11 +47,7 @@ router.get('/', redirectToLogin, async (req, res) => {
       details,
     });
   } catch (err) {
-    await Task.drop();
-    await User.drop();
-    await req.session.destroy();
-
-    res.redirect('/login');
+    await dropAllDB(req, res);
   }
 });
 
