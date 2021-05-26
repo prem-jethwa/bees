@@ -9,4 +9,4 @@ const dropAllDB = async (req, res) => {
 // expire my db every 1 hour
 setInterval(dropAllDB, 1000 * 60 * 60);
 
-export default dropAllDB;
+module.exports = dropAllDB;
