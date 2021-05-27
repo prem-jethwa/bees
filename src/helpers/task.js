@@ -12,14 +12,19 @@ const _formatName = name => {
 
 const _generatInfo = async userId => {
   const user = await User.findOne({where: {id: userId}});
+
+  if (!user) return {unAuth: true};
+
   let {totalTask} = user.dataValues;
 
   const tasks = await Task.findAll({where: {userId}});
 
   const values = [];
 
-  for (let task of tasks) {
-    values.push(+task.dataValues.renderId);
+  if (tasks) {
+    for (let task of tasks) {
+      if (task) values.push(+task.dataValues.renderId);
+    }
   }
 
   let renderId = Math.max(...values);
@@ -38,7 +43,9 @@ const _generatInfo = async userId => {
 
 // call ones in create task
 const updateTotalTasks = async userId => {
-  const {totalTask, user} = await _generatInfo(userId);
+  const {unAuth, totalTask, user} = await _generatInfo(userId);
+
+  if (unAuth) return;
 
   await user.update({
     totalTask: totalTask + 1,
@@ -46,7 +53,9 @@ const updateTotalTasks = async userId => {
 };
 
 const updateCompleteTasks = async userId => {
-  const {totalTask, activeTask, user} = await _generatInfo(userId);
+  const {unAuth, totalTask, activeTask, user} = await _generatInfo(userId);
+  if (unAuth) return;
+
   const complitedTask = totalTask - activeTask < 0 ? 0 : totalTask - activeTask;
 
   await user.update({
@@ -55,7 +64,9 @@ const updateCompleteTasks = async userId => {
 };
 
 const getDetails = async userId => {
-  const {activeTask, user, renderId} = await _generatInfo(userId);
+  const {unAuth, activeTask, user, renderId} = await _generatInfo(userId);
+  if (unAuth) return;
+
   const {totalTask, complitedTask, name} = user.dataValues;
   const formatedName = _formatName(name);
 

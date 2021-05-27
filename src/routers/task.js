@@ -12,44 +12,11 @@ const {
   resetRenderId,
   updateCompleteTasks,
 } = require('../helpers/task');
-const dropAllDB = require('../helpers/dropdb');
 
-router.get('/', redirectToLogin, async (req, res) => {
-  try {
-    const tasks = await Task.findAll({where: {userId: req.session.userId}});
-    const details = await getDetails(req.session.userId);
+const {homeRouter} = require('../controller/task');
+// const {isUserExist} = require('../middleware/isUserExist');
 
-    const tasksForSend = [];
-
-    for (let task of tasks) {
-      let newObj = task.dataValues;
-      let desc = task.dataValues.desc.trim();
-      let date = task.dataValues.date + '';
-      if (!desc) newObj.desc = false;
-
-      if (desc && desc.replace(/ /, '').length > 50) {
-        newObj.descLength = true;
-      } else {
-        newObj.descLength = false;
-      }
-
-      if (date) {
-        newObj.date = date.replace(/-/g, ' / ').split('/').reverse().join(' / ');
-      }
-
-      tasksForSend.push(newObj);
-    }
-
-    res.render('index', {
-      title: tasksForSend[0] ? 'All Your Tasks' : 'No Tasks Found',
-      isAuth: req.session.isUserAuth,
-      tasks: tasksForSend,
-      details,
-    });
-  } catch (err) {
-    await dropAllDB(req, res);
-  }
-});
+router.get('/', redirectToLogin, homeRouter);
 
 router.get('/create', redirectToLogin, async (req, res) => {
   const details = await getDetails(req.session.userId);

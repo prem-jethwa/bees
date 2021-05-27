@@ -29,6 +29,11 @@ app.use(
   })
 );
 
+// Expire database after 1h
+setInterval(async () => {
+  sequelize.sync({force: true});
+}, 1000 * 60 * 60);
+
 const publicDirPath = path.join(__dirname, '../public');
 const viewDirPath = path.join(__dirname, '../template');
 const partialsDirPath = path.join(__dirname, '../partials');
@@ -73,8 +78,8 @@ Task.belongsTo(User, {
 User.hasMany(Task);
 
 sequelize
-  .sync({force: true})
-  // .sync()
+  // .sync({force: true})
+  .sync()
   .then(result => console.log('Connected to DATABASE'))
   .catch(err => console.log(err));
 
