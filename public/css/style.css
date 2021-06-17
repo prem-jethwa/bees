@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300&family=Marcellus+SC&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@300&family=Marcellus+SC&display=swap");
 * {
   margin: 0;
 }
@@ -25,8 +25,8 @@ body {
   --pri-form: #fdffb6;
 
   /* font */
-  --pri-font: 'Epilogue', sans-serif;
-  --sec-font: 'Marcellus SC', serif;
+  --pri-font: "Epilogue", sans-serif;
+  --sec-font: "Marcellus SC", serif;
 }
 
 .container {
@@ -414,10 +414,11 @@ p.more {
   cursor: pointer;
   margin: 0;
   width: 50px;
+  text-align: right;
 }
 
 /* footer styling */
-
+/* 
 .footer {
   margin-top: 1em;
   height: 300px;
@@ -428,12 +429,6 @@ p.more {
   justify-content: space-evenly;
   flex-direction: column;
 }
-/* .inner-footer {
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-} */
 
 .copyright-footer p {
   font-size: 1.5rem;
@@ -449,6 +444,84 @@ p.more {
 }
 .footer-btn:hover {
   background-color: #97979756;
+} */
+
+/* NEW footer style */
+/* .height {
+  min-height: 40vh;
+} */
+.footer-con {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 300px;
+  background-color: #320081a9;
+
+  align-items: center;
+  position: relative;
+}
+.footer-con p {
+  color: white;
+  font-size: 1.5rem;
+}
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-con .footer a {
+  width: 100%;
+  max-width: 230px;
+  text-decoration: none;
+  padding: 0.5em;
+  margin: 1em;
+  border: 1px solid;
+  background-color: rgba(240, 255, 255, 0.705);
+  border-radius: 10px;
+  font-size: 1.3rem;
+  text-align: center;
+}
+.footer-con .footer a:hover {
+  background-color: rgb(255, 255, 147);
+}
+
+.footer-con .footer p span {
+  background-color: rgb(255, 255, 147);
+  padding: 0 0.5em;
+  font-weight: 700;
+}
+.footer-con .footer p {
+  position: absolute;
+  top: -5px;
+  right: 0;
+  font-size: 1rem;
+}
+
+.license {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 700;
+  color: rgb(255, 248, 183);
+  margin: 0.5em;
+}
+
+.license a img {
+  margin: 0 auto;
+  width: 60px;
+}
+
+.license a {
+  color: rgb(177, 177, 255);
+  margin: 0 0.5em;
+}
+
+@media (max-width: 700px) {
+  .footer-con a {
+    font-size: 1rem;
+  }
 }
 
 /* Media querys */
