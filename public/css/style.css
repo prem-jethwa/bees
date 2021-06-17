@@ -410,12 +410,11 @@ button.edit-btn {
 /* more btn */
 
 p.more {
+  width: 90%;
   color: blue;
   cursor: pointer;
-  margin: 0;
-  width: 50px;
+  margin: 0 0 0 auto;
   text-align: right;
-  width: 90%;
 }
 
 /* footer styling */
