@@ -495,9 +495,10 @@ p.more {
 }
 .footer-con .footer p {
   position: absolute;
-  top: -5px;
+  top: -25px;
   right: 0;
   font-size: 1rem;
+  color: #310081;
 }
 
 .license {
