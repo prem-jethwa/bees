@@ -415,6 +415,7 @@ p.more {
   margin: 0;
   width: 50px;
   text-align: right;
+  width: 90%;
 }
 
 /* footer styling */
@@ -460,6 +461,7 @@ p.more {
 
   align-items: center;
   position: relative;
+  margin-top: 2em;
 }
 .footer-con p {
   color: white;
