@@ -415,6 +415,7 @@ p.more {
   margin: 0;
   width: 50px;
   text-align: right;
+  float: right;
 }
 
 /* footer styling */
@@ -456,7 +457,7 @@ p.more {
   flex-direction: column;
   justify-content: space-evenly;
   height: 300px;
-  background-color: #320081a9;
+  background-color: #310081;
 
   align-items: center;
   position: relative;
