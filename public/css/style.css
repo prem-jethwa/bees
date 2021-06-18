@@ -8,8 +8,10 @@ body {
 
 .notify {
   width: 100%;
-  padding: 1em 0;
-  background-color: #ff7505;
+  padding: 0.5em 0;
+  background-color: #ff7605cb;
+  text-align: center;
+  font-size: 1.2rem;
 }
 
 .flex {
