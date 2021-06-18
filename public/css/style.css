@@ -6,6 +6,12 @@ body {
   background-color: rgba(177, 177, 177, 0.377);
 }
 
+.notify {
+  width: 100%;
+  padding: 1em 0;
+  background-color: #ff7505;
+}
+
 .flex {
   display: flex;
   justify-content: space-between;
