@@ -389,11 +389,11 @@ button.edit-btn {
   border: 2px solid;
   border-radius: 50%;
   box-shadow: 1px 1px 10px rgba(110, 110, 110, 0.541);
-  background-color: var(--sec-bg);
+  background-color: var(--sec-color);
 }
 
 .add-task img:hover {
-  background-color: var(--pri-color);
+  background-color: var(--pri-bg);
 }
 
 /* @media (max-width:900px) {
