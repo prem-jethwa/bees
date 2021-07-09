@@ -51,6 +51,11 @@ body {
   cursor: pointer;
   text-decoration: none;
   box-shadow: 1px 1px 5px rgba(110, 110, 110, 0.541);
+
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
 }
 .btn:hover {
   background-color: var(--pri-bg);
