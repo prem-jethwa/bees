@@ -9,9 +9,10 @@ body {
 .notify {
   width: 100%;
   padding: 0.5em 0;
-  background-color: #ff7605cb;
+  background-color: #ca6716;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 16px;
+  color: #ff953d;
 }
 
 .flex {
