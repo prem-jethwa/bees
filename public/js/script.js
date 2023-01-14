@@ -61,5 +61,5 @@ main.addEventListener("click", async (e) => {
     method: "DELETE",
   });
 
-  window.location.href = "https://beesbypj.herokuapp.com/";
+  window.location.href = "https://bees-seven.vercel.app/";
 });
